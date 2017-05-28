@@ -25,14 +25,14 @@ feature_columns = [tf.contrib.layers.real_valued_column("", dimension=5)]
 
 # 10, 20, 10개의 유닛을 가진 3층 DNN를 만듭니다
 classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,
-                                            hidden_units=[5, 15, 5],
+                                            hidden_units=[3, 3, 5],
                                             n_classes=5,
                                             model_dir="/tmp/iris_model")
 
 # 모델을 학습시킵니다.
 classifier.fit(x=training_set.data,
                y=training_set.target,
-               steps=10000)
+               steps=6000)
 
 # 정확도를 평가합니다.
 accuracy_score = classifier.evaluate(x=test_set.data,
